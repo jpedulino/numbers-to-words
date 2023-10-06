@@ -28,4 +28,4 @@ class ConverterMixin:
             words = converter_func(number=number)
             return JsonResponse({"status": "ok", "num_in_english": words})
         except Exception as exc:
-            return JsonResponse({"status": "error", "message": exc.message})
+            return JsonResponse({"status": "error", "message": exc.message}, status=400)

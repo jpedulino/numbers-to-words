@@ -38,7 +38,7 @@ class TestNumberToEnglishView:
         response = django_test_client.get(
             self.url + f"?number={EN_CONVERSION_LIMIT + 1}"
         )
-        assert response.status_code == 200
+        assert response.status_code == 400
 
         response_content = json.loads(response.content)
         assert response_content["status"] == "error"
